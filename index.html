@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Almamater Listeners</title>
+</head>
+
+<body>
+  <h1>Almamater Listeners</h1>
+  <button>Refresh</button>
+  <p id="result"></p>
+
+  <script>
+    document.querySelector('button').addEventListener('click', getListeners);
+    var result = document.getElementById("result");
+    var client ="almamater"
+    var listeners = "";
+
+    function getListeners() {
+      fetch("https://api.allorigins.win/raw?url=http://a1.vizitec.com:8000/ListenersuZ7PxezqVFZ8vLfCmG.xsl")
+        .then(response => response.text())
+        .then(data => {
+          listeners = data.split(`${client}</Name><Count>`)[1]?.split('</Count>')[0];
+          setListeners();
+        })
+        .catch(error => {
+          result.innerHTML = "Error loading data.";
+          console.error("Error fetching data:", error);
+        });
+      
+    }
+
+    function setListeners() {
+      result.innerText = `Count: ${listeners}`;
+    }
+
+  </script>
+</body>
+
+</html>
