@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Almamater Listeners</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
   <h1>Almamater Listeners</h1>
   <h2 id="result"></h2>
-  <button>Refresh</button>
+  <button><i class="fa-solid fa-arrows-rotate" style="font-size: 2rem;"></button>
 
   <script>
     document.querySelector('button').addEventListener('click', getListeners);
@@ -47,6 +48,11 @@
   }
   h1 {
     margin-top: 10rem;
+  }
+  button {
+    padding: 0.25rem;
+    background-color: rgb(57, 217, 153);
+    border-radius: 1rem;
   }
 </style>
 
