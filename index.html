@@ -9,7 +9,7 @@
 
 <body>
   <h1>Almamater Listeners</h1>
-  <h2 id="result"></h2>
+  <h2 id="result">Loading...</h2>
   <button>
     <i class="fa-solid fa-arrows-rotate" style="font-size: 4rem;"></i>
   </button>
@@ -23,16 +23,19 @@
     getListeners();
 
     function getListeners() {
-      fetch("https://api.allorigins.win/raw?url=http://a1.vizitec.com:8000/ListenersuZ7PxezqVFZ8vLfCmG.xsl")
-        .then(response => response.text())
-        .then(data => {
-          listeners = data.split(`${client}</Name><Count>`)[1]?.split('</Count>')[0];
-          result.innerText = `Count: ${listeners}`;
-        })
-        .catch(error => {
-          result.innerText = "Error loading data.";
-          console.error("Error fetching data:", error);
-        });
+      result.innerText = "Loading...";
+      setTimeout(() => {
+        fetch("https://api.allorigins.win/raw?url=http://a1.vizitec.com:8000/ListenersuZ7PxezqVFZ8vLfCmG.xsl")
+          .then(response => response.text())
+          .then(data => {
+            listeners = data.split(`${client}</Name><Count>`)[1]?.split('</Count>')[0];
+            result.innerText = `Count: ${listeners}`;
+          })
+          .catch(error => {
+            result.innerText = "Error loading data.";
+            console.error("Error fetching data:", error);
+          });
+      }, 500);
     }
   </script>
 </body>
