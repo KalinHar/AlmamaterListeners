@@ -29,10 +29,14 @@
           .then(response => response.text())
           .then(data => {
             listeners = data.split(`${client}</Name><Count>`)[1]?.split('</Count>')[0];
-            result.innerText = `Count: ${listeners}`;
+            if (listeners >= 0) {
+              result.innerText = `Count: ${listeners}`;
+            } else {
+              result.innerText = `Client "${client}" not found!`;
+            }
           })
           .catch(error => {
-            result.innerText = "Error loading data.";
+            result.innerText = "Error loading data!";
             console.error("Error fetching data:", error);
           });
       }, 500);
