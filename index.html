@@ -9,8 +9,10 @@
 <body>
   <h1>Almamater Listeners</h1>
   <h2 id="result"></h2>
+  <button>Refresh</button>
 
   <script>
+    document.querySelector('button').addEventListener('click', getListeners);
     var result = document.getElementById("result");
     var client ="almamater"
     var listeners = "";
