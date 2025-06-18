@@ -10,7 +10,9 @@
 <body>
   <h1>Almamater Listeners</h1>
   <h2 id="result"></h2>
-  <button><i class="fa-solid fa-arrows-rotate" style="font-size: 2rem;"></button>
+  <button>
+    <i class="fa-solid fa-arrows-rotate" style="font-size: 2rem;">
+  </button>
 
   <script>
     document.querySelector('button').addEventListener('click', getListeners);
@@ -18,7 +20,6 @@
     var client ="almamater"
     var listeners = "";
 
-    // setInterval(getListeners, 5000);
     getListeners();
 
     function getListeners() {
